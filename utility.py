@@ -1,3 +1,5 @@
+print(__name__)
+
 def my_func(num):
 	my_list = []
 	for i in range(num):

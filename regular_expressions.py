@@ -12,14 +12,17 @@ my_str2 = "may 25 2020"
 regex = pattern2.findall(my_str2)
 print(regex)
 
-pattern3 = re.compile('^(([\d]+)[^/A-Za-z]([\d]+))')
+pattern3 = re.compile(r"^(([\d]+)[^/A-Za-z]([\d]+))")
 my_str3 = "250x300"
 regex2 = pattern3.search(my_str3)
 print(regex2)
 
-
 pattern4 = re.compile('(([c]ats|[d]ogs))')
-my_str4 = "i love cats, i love dogs, i love logs, i love cogs"
-regex3 = pattern4.search(my_str4)
+my_str3 = "i love cats,  i love dogs, i love logs, i love cogs"
+regex3 = pattern4.search(my_str3)
 print(regex3)
 
+pattern5 = re.compile(r"(^([A-Za-z0-9_@]+){8,}(\d$))")
+my_str4 = "kamalrathi@49"
+regex4 = pattern5.fullmatch(my_str4)
+print(regex4)

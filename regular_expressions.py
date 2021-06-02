@@ -18,5 +18,8 @@ regex2 = pattern3.search(my_str3)
 print(regex2)
 
 
-
+pattern4 = re.compile('(([c]ats|[d]ogs))')
+my_str4 = "i love cats, i love dogs, i love logs, i love cogs"
+regex3 = pattern4.search(my_str4)
+print(regex3)
 

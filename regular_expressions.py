@@ -21,8 +21,13 @@ pattern4 = re.compile('(([c]ats|[d]ogs))')
 my_str3 = "i love cats,  i love dogs, i love logs, i love cogs"
 regex3 = pattern4.search(my_str3)
 print(regex3)
-
-pattern5 = re.compile(r"(^([A-Za-z0-9_@]+){8,}(\d$))")
+#
+pattern5 = re.compile(r"(^([A-Za-z0-9_@]+)(\d$)+)")
 my_str4 = "kamalrathi@49"
-regex4 = pattern5.fullmatch(my_str4)
+regex4 = pattern5.match(my_str4)
 print(regex4)
+
+pattern6 = re.compile(r"(^([A-Za-z_]+[:])([\w@+/-_$]))")
+my_str5 = "this is my email_id:kamalrathi@49"
+regex5 = pattern6.match(my_str5)
+print(regex5)

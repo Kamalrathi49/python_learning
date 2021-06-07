@@ -2,7 +2,6 @@ from PIL import Image, ImageFilter
 
 img = Image.open("./images/bulbasaur.jpg")
 
-filtered_img = img.convert("L")
-filtered_img.save("converted_img.png", "png")
-
+filtered_img = img.rotate(-90)
+filtered_img.save("rotated_img2.png", "png")
 print(filtered_img)

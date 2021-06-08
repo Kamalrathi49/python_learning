@@ -2,6 +2,7 @@ from PIL import Image, ImageFilter
 
 img = Image.open("./images/bulbasaur.jpg")
 
-filtered_img = img.rotate(-90)
-filtered_img.save("rotated_img2.png", "png")
+box = (100, 100, 400, 400)
+filtered_img = img.crop(box)
+filtered_img.save("cropped_img.png", "png")
 print(filtered_img)

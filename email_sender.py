@@ -4,11 +4,13 @@ from email.message import EmailMessage
 
 email = EmailMessage()
 email.set_content("this email is dent from python")
-email["From"] = "Soniya Gujjar"
-email["To"] = "kamalrathi049@gmail.com"
+email["From"] = "Your name"
+email["To"] = "receiver's email"
 email["Subject"] = "Email from python"
 
-s = smtplib.SMTP("soniyagujjar049@gmail.com")
-s.send_message(email)
-print("done")
-s.quit()
+with smtplib.SMTP(host="smtp.gmail.com", port="587") as smtp:
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login("your email", "password")
+    smtp.send_message(email)
+    print("done")

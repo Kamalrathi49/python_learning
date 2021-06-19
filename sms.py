@@ -1,18 +1,13 @@
-import os
 from twilio.rest import Client
 
-
-# Find your Account SID and Auth Token at twilio.com/console
-# and set the environment variables. See http://twil.io/secure
-account_sid = os.environ['TWILIO_ACCOUNT_SID']
-auth_token = os.environ['TWILIO_AUTH_TOKEN']
+account_sid = 'AC23c735c5f65258837a9e32d4945e68d0'
+auth_token = '0748e768af5ed92bc33935ce291a30ed'
 client = Client(account_sid, auth_token)
 
-message = client.messages \
-                .create(
-                     body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-                     from_='+15017122661',
-                     to='+15558675310'
-                 )
+message = client.messages.create(
+    messaging_service_sid='MG945ef48934ee3dbe696cdc728bc399fc',
+    body='testing sms in python --by Kamal Rathi',
+    to='+918059910473'
+)
 
 print(message.sid)

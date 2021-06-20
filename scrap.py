@@ -2,6 +2,10 @@ import requests
 
 from bs4 import BeautifulSoup
 
-res = requests.get("https://www.youtube.com/")
+url = "https://www.youtube.com/"
+
+res = requests.get(url)
 
 soup = BeautifulSoup(res.text, "html.parser")
+
+print(soup)

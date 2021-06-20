@@ -8,4 +8,4 @@ res = requests.get(url)
 
 soup = BeautifulSoup(res.text, "html.parser")
 
-print(soup.find('a'))
+print(soup.find(id="score_27569772"))

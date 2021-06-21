@@ -12,9 +12,10 @@ subtext = soup.select('.subtext')
 def create_custom_hn(links, votes):
     hn = []
     for idx, item in enumerate(links):
-        title = links[idx].getText()
-        hn.append(title)
-
+        titles = links[idx].getText()
+        href = links[idx].get('href', None)
+        hn.append({'title': titles, 'link': href})
+        print(hn)
     return hn
 
 

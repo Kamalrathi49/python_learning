@@ -1,6 +1,6 @@
 import requests
-
 from bs4 import BeautifulSoup
+import pprint
 
 url = "https://news.ycombinator.com/"
 res = requests.get(url)
@@ -12,8 +12,8 @@ subtext = soup.select('.subtext')
 def create_custom_hn(links, subtext):
     hn = []
     for idx, item in enumerate(links):
-        titles = links[idx].getText()
-        href = links[idx].get('href', None)
+        titles = item.getText()
+        href = item.get('href', None)
         vote = subtext[idx].select('.score')
         if len(vote):
             points = int(vote[0].getText().replace(" points", ""))
@@ -21,4 +21,4 @@ def create_custom_hn(links, subtext):
     return hn
 
 
-print(create_custom_hn(links, subtext))
+pprint.pprint(create_custom_hn(links, subtext))

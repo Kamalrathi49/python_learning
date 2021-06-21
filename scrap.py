@@ -9,14 +9,16 @@ links = soup.select('.storylink')
 subtext = soup.select('.subtext')
 
 
-def create_custom_hn(links, votes):
+def create_custom_hn(links, subtext):
     hn = []
     for idx, item in enumerate(links):
         titles = links[idx].getText()
         href = links[idx].get('href', None)
-        hn.append({'title': titles, 'link': href})
-        print(hn)
+        vote = subtext[idx].select('.score')
+        if len(vote):
+            points = int(vote[0].getText().replace(" points", ""))
+            hn.append({'title': titles, 'link': href, "votes": points})
     return hn
 
 
-create_custom_hn(links, subtext)
+print(create_custom_hn(links, subtext))

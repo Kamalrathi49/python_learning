@@ -1,8 +1,6 @@
 from PIL import Image, ImageFilter
 
-img = Image.open("./images/bulbasaur.jpg")
+img = Image.open("./images/profile_img.jpg")
 
-box = (100, 100, 400, 400)
-filtered_img = img.crop(box)
-filtered_img.save("cropped_img.png", "png")
-print(filtered_img)
+img.thumbnail((150, 150))
+img.save("profile123.jpg", "png")

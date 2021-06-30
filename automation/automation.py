@@ -15,3 +15,6 @@ user_message.send_keys("helllooooooo")
 
 sm_button.click()
 
+message = driver.find_element_by_id("display")
+print(message.get_attribute("innerHTML"))
+

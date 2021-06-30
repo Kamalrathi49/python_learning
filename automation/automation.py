@@ -1,24 +1,23 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from time import sleep
 
 chrome_path = r"C:\Users\Kamal Rathi\PycharmProjects\my_pythonProject\automation\chromedriver.exe"
 
 driver = webdriver.Chrome(chrome_path)
 driver.maximize_window()
+driver.get('https://www.seleniumeasy.com/test/basic-first-form-demo.html')
 
-sleep(2)
-driver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
-sleep(3)
-username = driver.find_element_by_name('username')
-username.send_keys('username')
-password = driver.find_element_by_name('password')
-password.send_keys('password')
-submit = driver.find_element_by_tag_name('form')
-submit.submit()
-sleep(4)
-# notify_btn = driver.find_element_by_class_name('aOOlW')
-# notify_btn.click()
-# sleep(2)
-messenger_btn = driver.find_element_by_class_name('Fifk5')
-messenger_btn.click()
+user_msg = driver.find_element_by_id("user-message")
+sm_button = driver.find_element_by_class_name('btn-default')
+user_msg.clear()
+user_msg.send_keys("hello")
+
+
+sm_button.click()
+
+output_message = driver.find_element_by_id("display")
+print(output_message.get_attribute("innerHTML"))
+
+assert 'hello' in output_message.text
+
+driver.close()
+

@@ -1,17 +1,9 @@
-from itertools import combinations_with_replacement
+a = list(map(int, input().split()))
 
-a = input()
-a = a.split(" ")
-s, n = a[0], int(a[1])
+li = []
 
-flst = sorted(list(combinations_with_replacement(s, n)))
+for _ in range(a[0]):
+    inpt = max(list(map(int, input().split())))
+    li.append(inpt ** 2)
 
-lst = []
-
-for i in flst:
-    lst.append(i)
-
-for i in lst:
-    li = (i)
-    strng = ''.join(li)
-    print(strng)
+print(sum(li) % a[1])
